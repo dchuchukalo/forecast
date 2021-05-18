@@ -1,0 +1,11 @@
+.App {
+  height: 100vh;
+  background-color: rgb(196, 227, 248);
+  position: relative;
+
+  &__container {
+    padding: 100px 200px;
+    display: flex;
+    justify-content: center;
+  }
+}
