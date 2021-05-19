@@ -12,7 +12,9 @@ export const fetchForecast = city => async dispatch => {
   dispatch(fetchForecastRequest());
 
   try {
-    const { data } = await axios.get(`/forecast?q=${city}&appid=${key}`);
+    const { data } = await axios.get(
+      `/forecast?q=${city}&units=metric&appid=${key}`,
+    );
 
     dispatch(fetchForecastSuccess(data));
   } catch (error) {

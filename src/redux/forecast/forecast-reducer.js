@@ -3,6 +3,7 @@ import * as actions from './forecast-actions';
 
 const searchQuery = createReducer('', {
   [actions.onChangeInput]: (_, { payload }) => payload,
+  [actions.fetchForecastSuccess]: () => '',
 });
 
 const forecastData = createReducer(null, {

@@ -1,0 +1,13 @@
+.App {
+  height: calc(100vh - 200px);
+  padding: 100px 200px;
+  background-color: rgb(196, 227, 248);
+  position: relative;
+
+  &__container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+}

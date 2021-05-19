@@ -6,27 +6,32 @@ import {
   getSearchQuery,
   getForecastData,
 } from '../../redux/forecast/forecast-selectors';
-import './Search.scss';
+import './Search.styles.scss';
 
 const Search = ({ searchQuery, onChangeInput, onSearch }) => {
   const handleChangeInput = e => {
     onChangeInput(e.target.value);
   };
 
-  const handleSearchForecast = () => {
-    onSearch(searchQuery);
+  const handleSearchForecast = e => {
+    e.preventDefault();
+    if (!!searchQuery.length) {
+      onSearch(searchQuery);
+    }
   };
 
   return (
     <div className="Search">
-      <input
-        className="Search__input"
-        type="text"
-        placeholder="City name"
-        value={searchQuery}
-        onChange={handleChangeInput}
-      />
-      <button onClick={handleSearchForecast}>Search</button>
+      <form onSubmit={handleSearchForecast}>
+        <input
+          className="Search__input"
+          type="text"
+          placeholder="City name"
+          value={searchQuery}
+          onChange={handleChangeInput}
+        />
+        <button type="submit">Search</button>
+      </form>
     </div>
   );
 };
